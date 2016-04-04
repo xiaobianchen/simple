@@ -1,1 +1,1 @@
-# simple
+spring+ibatis+maven+git

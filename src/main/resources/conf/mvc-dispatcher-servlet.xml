@@ -1,0 +1,61 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+       <!-- 自动扫描 -->
+       <context:component-scan base-package="com.simple.*" />
+
+       <mvc:annotation-driven />
+       <mvc:default-servlet-handler/>
+
+       <!-- 配置视图解析 View Resolver -->
+       <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+              <property name="prefix" value="/WEB-INF/jsp/"/>
+              <property name="suffix" value=".jsp"/>
+       </bean>
+
+       <!-- 配置文件上传 -->
+       <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+              <property name="maxUploadSize" value="10485760000" />
+              <property name="defaultEncoding" value="UTF-8"/>
+              <property name="maxInMemorySize" value="40960" />
+       </bean>
+
+       <!-- JSON转换器 -->
+       <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+              <property name="supportedMediaTypes" value="application/json" />
+       </bean>
+
+       <!--中文乱码问题解决-->
+       <bean id="mappingJacksonHttpMessageConverter"
+             class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+              <property name="supportedMediaTypes">
+                     <list>
+                            <value>text/html;charset=UTF-8</value>
+                     </list>
+              </property>
+       </bean>
+
+       <!-- 启动SpringMVC的注解功能，完成请求和注解POJO的映射 -->
+       <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+              <property name="messageConverters">
+                     <list>
+                            <ref bean="mappingJacksonHttpMessageConverter" />
+                     </list>
+              </property>
+       </bean>
+
+       <!-- 配置静态资源 -->
+       <mvc:resources location="/WEB-INF/jsp/" mapping="/jsp/**"/>
+       <mvc:resources location="/WEB-INF/resources/js/" mapping="/js/**"/>
+       <mvc:resources location="/WEB-INF/resources/css/" mapping="/css/**"/>
+       <mvc:resources location="/WEB-INF/resources/img/" mapping="/img/**"/>
+
+</beans>
