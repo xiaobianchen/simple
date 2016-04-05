@@ -211,7 +211,7 @@
                         <div class="portlet-title">
 
                             <div class="actions">
-                                <a href="http://wy.foodoon.com/sys/admin/create.htm" class="btn default yellow-stripe">
+                                <a href="/simple/create.action" class="btn default yellow-stripe">
                                     <i class="fa fa-plus"></i>
 									<span class="hidden-480">
 										 新建管理员
