@@ -14,6 +14,7 @@
     <jsp:include page="common/main.jsp"/>
 </head>
 <!-- END HEAD -->
+
 <!-- BEGIN BODY -->
 <body class="page-header-fixed">
 <!-- BEGIN HEADER -->
@@ -22,15 +23,14 @@
 
     <div class="header-inner">
         <!-- BEGIN LOGO -->
-
-        <a class="navbar-brand" href="#" style="color:white;padding-left: 30px">
+        <a class="navbar-brand" href="/simple" style="color:white;padding-left: 30px">
             订餐管理系统
         </a>
         <!-- END LOGO -->
 
         <ul class="nav navbar-nav pull-right">
             <li style="color:white;line-height:50px">
-                <a style="color:white;" href="#" target="_blank"> 帮助中心</a>
+                <a style="color:white;" href="#" target="_blank">帮助中心</a>
             </li>
             <li style="color:white;line-height:50px">
                 <i class="fa fa-user"></i> 欢迎您：admin
@@ -43,14 +43,13 @@
         </ul>
     </div>
 </div>
-<!-- END HEADER -->
 <div class="clearfix">
 </div>
+
 <div class="page-container">
     <!-- BEGIN SIDEBAR -->
     <div class="page-sidebar-wrapper">
         <div class="page-sidebar navbar-collapse collapse">
-            <!-- add "navbar-no-scroll" class to disable the scrolling of the sidebar menu -->
             <!-- BEGIN SIDEBAR MENU -->
             <ul class="page-sidebar-menu" data-auto-scroll="true" data-slide-speed="200">
                 <li class="sidebar-toggler-wrapper">
@@ -95,12 +94,6 @@
                                 发票记录
                             </a>
                         </li>
-
-                        <li class="tooltips ">
-                            <a href="#">
-                                付款方式
-                            </a>
-                        </li>
                     </ul>
                 </li>
 
@@ -127,22 +120,22 @@
                             </a>
                         </li>
                         <li class="tooltips ">
-                            <a href="#">
+                            <a href="/simple/sms.action">
                                 短信设置
                             </a>
                         </li>
                         <li class="tooltips ">
-                            <a href="#">
+                            <a href="/simple/bindinguser.action">
                                 商城绑定用户
                             </a>
                         </li>
                         <li class="tooltips ">
-                            <a href="#">
+                            <a href="/simple/cleardata.action">
                                 清理数据
                             </a>
                         </li>
                         <li class="tooltips ">
-                            <a href="#">
+                            <a href="/simple/export.action">
                                 导入数据
                             </a>
                         </li>
@@ -233,44 +226,37 @@
                                             <label class="col-md-1 control-label">下单时间:
                                             </label>
                                             <div class="col-md-2">
-                                                <input name="ownerName" type="text" value="" class="form-control"/>
+                                                <input name="orderedTime" type="text" value="" class="form-control"/>
                                             </div>
 
                                             <label class="col-md-1 control-label">用户电话:
                                             </label>
                                             <div class="col-md-2">
-                                                <input name="ownerName" type="text" value="" class="form-control"/>
+                                                <input name="phoneNumber" type="text" value="" class="form-control"/>
                                             </div>
 
                                             <label class="col-md-1 control-label">外送地址:
                                             </label>
 
                                             <div class="col-md-2">
-                                                <input name="parkingCard" type="text" value="" class="form-control"/>
+                                                <input name="orderAddress" type="text" value="" class="form-control"/>
                                             </div>
 
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-md-1 control-label">外送地址:
-                                            </label>
-
-                                            <div class="col-md-2">
-                                                <input name="parkingCard" type="text" value="" class="form-control"/>
-                                            </div>
-
                                             <label class="col-md-1 control-label">总价格:
                                             </label>
 
                                             <div class="col-md-2">
-                                                <input name="parkingName" type="text" value="" class="form-control"/>
+                                                <input name="totalPrice" type="text" value="" class="form-control"/>
                                             </div>
 
                                             <label class="col-md-1 control-label">支付票据:
                                             </label>
 
                                             <div class="col-md-2">
-                                                <input name="parkingName" type="text" value="" class="form-control"/>
+                                                <input name="payNote" type="text" value="" class="form-control"/>
                                             </div>
 
                                             <div class="col-md-2">
@@ -288,7 +274,6 @@
             </div>
             <div class="row">
                 <div class="col-md-12 page-500">
-
                     <!-- Begin: life time stats -->
                     <div class="portlet">
 
@@ -338,9 +323,9 @@
                                             <li>
                                                 <a href="http://wy.foodoon.com/bill/unpaypay/stat.htm?pageNo=1&villageId=1&buildingId=&unitId=&suiteId=&feeType=$unpaySearchForm.feeType&search=1">首页</a>
                                             </li>
-                                            <li class="disabled"><a>上一页</a></li>
-                                            <li class="disabled"><a>下一页</a></li>
-                                            <li class="disabled"><a>末页</a></li>
+                                            <li><a>上一页</a></li>
+                                            <li><a>下一页</a></li>
+                                            <li><a>末页</a></li>
                                         </ul>
                                     </div>
                                 </div>
