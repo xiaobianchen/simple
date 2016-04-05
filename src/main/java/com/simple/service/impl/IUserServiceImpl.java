@@ -6,6 +6,8 @@ import com.simple.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author xiaobianchen
  * @version 1.0 2016/4/4
@@ -19,5 +21,25 @@ public class IUserServiceImpl implements IUserService {
     @Override
     public void insertUser(User user) {
         userMapper.insertUser(user);
+    }
+
+    @Override
+    public void deleteUser(int id) {
+        userMapper.deleteUser(id);
+    }
+
+    @Override
+    public List<User> listAll() {
+        return userMapper.listAll();
+    }
+
+    @Override
+    public User findByPrimaryKey(int id) {
+        return userMapper.findByPrimaryKey(id);
+    }
+
+    @Override
+    public void updateByPrimaryKey(User user) {
+         userMapper.updateByPrimaryKey(user);
     }
 }
