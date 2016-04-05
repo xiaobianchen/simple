@@ -13,7 +13,6 @@ public class LoginController {
 
     @RequestMapping(value = "/login.action",method = RequestMethod.POST)
     public String login(){
-        System.out.println("login method invoked!");
         return "index";
     }
 }

@@ -115,13 +115,13 @@
                     </a>
                     <ul class="sub-menu">
                         <li class="tooltips ">
-                            <a href="#">
+                            <a href="/simple/admin.action">
                         <span class="title">
                             管理员设置
                         </span>
                             </a>
                         </li>
-                        <li class="tooltips ">
+                        <li class="/simple/role.action">
                             <a href="#">
                                 角色配置
                             </a>
@@ -226,21 +226,18 @@
                                         <div class="form-group">
                                             <label class="col-md-1 control-label">用户名称:
                                             </label>
-
                                             <div class="col-md-2">
-                                                <input name="parkingCard" type="text" value="" class="form-control"/>
+                                                <input name="username" type="text" value="" class="form-control"/>
                                             </div>
 
                                             <label class="col-md-1 control-label">下单时间:
                                             </label>
-
                                             <div class="col-md-2">
-                                                <input name="parkingCard" type="text" value="" class="form-control"/>
+                                                <input name="ownerName" type="text" value="" class="form-control"/>
                                             </div>
 
                                             <label class="col-md-1 control-label">用户电话:
                                             </label>
-
                                             <div class="col-md-2">
                                                 <input name="ownerName" type="text" value="" class="form-control"/>
                                             </div>
@@ -361,10 +358,10 @@
 
     <script>
 
-        jQuery(document).ready(function () {
+        $(document).ready(function () {
             App.init(); // initlayout and core plugins
 
-            jQuery('.J_selectAll').click(function (e) {
+            $('.J_selectAll').click(function (e) {
                 if (this.checked) {
                     selectAll();
                 } else {
@@ -373,29 +370,29 @@
             });
 
             function selectAll() {
-                jQuery("input[name='billIdList']").each(function () {
-                    jQuery(this).attr('checked', true);
-                    jQuery(this).parents('.checker').find('span').addClass('checked');
+                $("input[name='billIdList']").each(function () {
+                    $(this).attr('checked', true);
+                    $(this).parents('.checker').find('span').addClass('checked');
                 });
             }
 
             function invertSelect() {
-                jQuery(".J_selectBox").each(function () {
-                    if (jQuery(this).attr('checked')) {
-                        jQuery(this).attr('checked', false);
-                        jQuery(this).parents('.checker').find('span').removeClass('checked');
+                $(".J_selectBox").each(function () {
+                    if ($(this).attr('checked')) {
+                        $(this).attr('checked', false);
+                        $(this).parents('.checker').find('span').removeClass('checked');
                     } else {
-                        jQuery(this).attr('checked', true);
-                        jQuery(this).parents('.checker').find('span').addClass('checked');
+                        $(this).attr('checked', true);
+                        $(this).parents('.checker').find('span').addClass('checked');
                     }
                 });
             }
 
 
-            jQuery(".J_village").change(function (e1) {
-                var villageId = jQuery(this).children('option:selected').val();
-                jQuery('.J_village_id').val(villageId)
-                jQuery.ajax({
+            $(".J_village").change(function (e1) {
+                var villageId = $(this).children('option:selected').val();
+                $('.J_village_id').val(villageId)
+                $.ajax({
                     type: 'POST',
                     url: 'http://wy.foodoon.com/sys/common/getBuilding.htm',
                     data: {
@@ -403,7 +400,7 @@
                     },
                     dataType: 'json',
                     success: function (data) {
-                        jQuery('.J_building').empty();
+                        $('.J_building').empty();
                         if (data.buildingList.length > 0) {
 
                             createBuildingOption('.J_building', data.buildingList);
@@ -414,15 +411,15 @@
             });
 
             function createBuildingOption(cls, response) {
-                jQuery(cls).empty();
-                var select = jQuery(cls);
+                $(cls).empty();
+                var select = $(cls);
                 select.append('<option value="">请选择</option>');
-                jQuery.each(response, function (i, item) {
-                    var v = jQuery(cls).val();
+                $.each(response, function (i, item) {
+                    var v = $(cls).val();
                     if (v && v == item.buildingId) {
-                        select.append(jQuery("<option selected>" + item.buildingName + "</option>").attr("value", item.buildingId));
+                        select.append($("<option selected>" + item.buildingName + "</option>").attr("value", item.buildingId));
                     } else {
-                        select.append(jQuery("<option>" + item.buildingName + "</option>").attr("value", item.buildingId));
+                        select.append($("<option>" + item.buildingName + "</option>").attr("value", item.buildingId));
                     }
 
                 });
@@ -430,10 +427,10 @@
             }
 
 
-            jQuery(".J_building").change(function (e1) {
-                var buildingId = jQuery(this).children('option:selected').val();
-                jQuery('.J_building_id').val(buildingId)
-                jQuery.ajax({
+            $(".J_building").change(function (e1) {
+                var buildingId = $(this).children('option:selected').val();
+                $('.J_building_id').val(buildingId)
+                $.ajax({
                     type: 'POST',
                     url: 'http://wy.foodoon.com/sys/common/getUnit.htm',
                     data: {
@@ -441,7 +438,7 @@
                     },
                     dataType: 'json',
                     success: function (data) {
-                        jQuery('.J_unit').empty();
+                        $('.J_unit').empty();
                         if (data.unitList.length > 0) {
 
                             createUnitOption('.J_unit', data.unitList);
@@ -452,15 +449,15 @@
             });
 
             function createUnitOption(cls, response) {
-                jQuery(cls).empty();
-                var select = jQuery(cls);
+                $(cls).empty();
+                var select = $(cls);
                 select.append('<option value="">请选择</option>');
-                jQuery.each(response, function (i, item) {
-                    var v = jQuery(cls).val();
+                $.each(response, function (i, item) {
+                    var v = $(cls).val();
                     if (v && v == item.unitId) {
-                        select.append(jQuery("<option selected>" + item.unitName + "</option>").attr("value", item.unitId));
+                        select.append($("<option selected>" + item.unitName + "</option>").attr("value", item.unitId));
                     } else {
-                        select.append(jQuery("<option>" + item.unitName + "</option>").attr("value", item.unitId));
+                        select.append($("<option>" + item.unitName + "</option>").attr("value", item.unitId));
                     }
 
                 });
@@ -468,10 +465,10 @@
             }
 
 
-            jQuery(".J_unit").change(function (e1) {
-                var unitId = jQuery(this).children('option:selected').val();
-                jQuery('.J_unit_id').val(unitId)
-                jQuery.ajax({
+            $(".J_unit").change(function (e1) {
+                var unitId = $(this).children('option:selected').val();
+                $('.J_unit_id').val(unitId)
+                $.ajax({
                     type: 'POST',
                     url: 'http://wy.foodoon.com/sys/common/getSuite.htm',
                     data: {
@@ -479,7 +476,7 @@
                     },
                     dataType: 'json',
                     success: function (data) {
-                        jQuery('.J_suite').empty();
+                        $('.J_suite').empty();
                         if (data.suiteList.length > 0) {
 
                             createSuiteOption('.J_suite', data.suiteList);
@@ -490,23 +487,23 @@
             });
 
             function createSuiteOption(cls, response) {
-                jQuery(cls).empty();
-                var select = jQuery(cls);
+                $(cls).empty();
+                var select = $(cls);
                 select.append('<option value="">请选择</option>');
-                jQuery.each(response, function (i, item) {
-                    var v = jQuery(cls).val();
+                $.each(response, function (i, item) {
+                    var v = $(cls).val();
                     if (v && v == item.suiteId) {
-                        select.append(jQuery("<option selected>" + item.suiteName + "</option>").attr("value", item.suiteId));
+                        select.append($("<option selected>" + item.suiteName + "</option>").attr("value", item.suiteId));
                     } else {
-                        select.append(jQuery("<option>" + item.suiteName + "</option>").attr("value", item.suiteId));
+                        select.append($("<option>" + item.suiteName + "</option>").attr("value", item.suiteId));
                     }
 
                 });
             }
 
-            jQuery(".J_suite").change(function (e1) {
-                var suiteId = jQuery(this).children('option:selected').val();
-                jQuery('.J_suite_id').val(suiteId)
+            $(".J_suite").change(function (e1) {
+                var suiteId = $(this).children('option:selected').val();
+                $('.J_suite_id').val(suiteId)
             });
         });
     </script>
