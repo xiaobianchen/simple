@@ -12,12 +12,11 @@ public interface IUserService {
 
     void insertUser(User user);
 
-    void deleteUser(int id);
-
     List<User> listAll();
 
-    User findByPrimaryKey(int id);
+    User findByPrimaryKey(String id);
 
     void updateByPrimaryKey(User user);
 
+    void deleteUser(String id);
 }

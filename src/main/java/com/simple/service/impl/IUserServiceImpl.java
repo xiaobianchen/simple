@@ -24,22 +24,22 @@ public class IUserServiceImpl implements IUserService {
     }
 
     @Override
-    public void deleteUser(int id) {
-        userMapper.deleteUser(id);
-    }
-
-    @Override
     public List<User> listAll() {
         return userMapper.listAll();
     }
 
     @Override
-    public User findByPrimaryKey(int id) {
+    public User findByPrimaryKey(String id) {
         return userMapper.findByPrimaryKey(id);
     }
 
     @Override
     public void updateByPrimaryKey(User user) {
-         userMapper.updateByPrimaryKey(user);
+        userMapper.updateByPrimaryKey(user);
+    }
+
+    @Override
+    public void deleteUser(String id) {
+        userMapper.deleteUser(id);
     }
 }

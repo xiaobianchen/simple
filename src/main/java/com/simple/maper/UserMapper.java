@@ -11,11 +11,11 @@ import java.util.List;
 public interface UserMapper {
     void insertUser(User user);
 
-    void deleteUser(int id);
+    void deleteUser(String id);
 
     List<User> listAll();
 
-    User findByPrimaryKey(int id);
+    User findByPrimaryKey(String id);
 
     void updateByPrimaryKey(User user);
 }

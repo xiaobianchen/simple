@@ -44,6 +44,7 @@
         <jstl.version>1.2</jstl.version>
         <junit.version>4.12</junit.version>
         <log4j.version>1.7.7</log4j.version>
+        <servlet.version>2.5</servlet.version>
     </properties>
 
     <dependencies>
@@ -53,6 +54,14 @@
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${servlet.version}</version>
+        </dependency>
+
+
         <!--spring core-->
         <dependency>
             <groupId>org.springframework</groupId>

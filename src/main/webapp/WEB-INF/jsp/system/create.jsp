@@ -194,7 +194,7 @@
                 <li>
                     <i class="fa fa-home"></i>
                     <a href="#">
-                       设置管理员
+                        设置管理员
                     </a>
                     <i class="fa fa-angle-right"></i>
                 </li>
@@ -205,11 +205,10 @@
             <!-- BEGIN PAGE CONTENT-->
             <div class="row">
                 <div class="col-md-12">
-                    <form class="form-horizontal form-row-seperated"  method="post" action="#">
+                    <form class="form-horizontal form-row-seperated" method="post" action="/simple/saveUser.action">
                         <input type="hidden" name="_form_token" value="8e2479ea-334e-491f-bc0b-8c739c2c8791">
 
                         <div class="portlet">
-
                             <div class="portlet-body">
                                 <div class="tabbable">
 
@@ -221,7 +220,7 @@
 
                                             <div class="col-md-6">
                                                 <input class="form-control placeholder-no-fix" type="text"
-                                                       name="loginName" value=""/>
+                                                       name="username" value=""/>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -231,7 +230,7 @@
 
                                             <div class="col-md-6">
                                                 <input class="form-control placeholder-no-fix" type="password"
-                                                       name="loginPassword" value=""/>
+                                                       name="password" value=""/>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -251,44 +250,26 @@
 
                                             <div class="col-md-6">
                                                 <input class="form-control placeholder-no-fix" type="text"
-                                                       name="certNo" value=""/>
+                                                       name="id" value=""/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-2 control-label">手机号:
                                             </label>
+
                                             <div class="col-md-6">
                                                 <input class="form-control placeholder-no-fix" type="text"
                                                        name="phone" value=""/>
                                             </div>
-
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-2 control-label">角色:
-                                                <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-6">
-                                                <input type="checkbox" name="roleIdArray" value="1">
-                                                小区管理员
-                                                <input type="checkbox" name="roleIdArray" value="3">
-                                                小区财务
-                                                <input type="checkbox" name="roleIdArray" value="4">
-                                                缴费专员
-                                                <input type="checkbox" name="roleIdArray" value="5">
-                                                香榭核算员
-
-                                            </div>
-
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-2"></div>
                                             <div class="col-md-6">
-                                                <button class="btn green" type="submit"><i class="fa fa-check"></i> 保存</button>
+                                                <button class="btn green" type="submit"><i class="fa fa-check"></i> 保存
+                                                </button>
                                             </div>
                                         </div>
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>

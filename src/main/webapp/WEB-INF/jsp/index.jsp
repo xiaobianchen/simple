@@ -152,7 +152,7 @@
                     </a>
                     <ul class="sub-menu">
                         <li class="tooltips ">
-                            <a href="#">
+                            <a href="/simple/Income.action">
                                 <span class="title">
                                     收入汇总
                                 </span>

@@ -33,17 +33,18 @@ public class IUserServiceImplTest {
     public void testInsertUser() throws Exception {
 
         User user = new User();
-        user.setId(4);
-        user.setName("xiaobian");
-        user.setAge(27);
-
+        user.setId("340822198905045235");
+        user.setUsername("ch751652064");
+        user.setPassword("123456");
+        user.setRealName("xiaobian");
+        user.setPhone("18601705642");
         userService.insertUser(user);
         logger.info("insert user successfully!");
     }
 
     @Test
     public void testDeleteUser() throws Exception {
-        userService.deleteUser(4);
+        userService.deleteUser("340822198905045235");
         logger.info("delete user successfully!");
     }
 
@@ -55,17 +56,17 @@ public class IUserServiceImplTest {
 
     @Test
     public void testFindByPrimaryKey() throws Exception{
-        User user = userService.findByPrimaryKey(2);
+        User user = userService.findByPrimaryKey("340822198905045235");
         logger.info("current user info:" + user);
     }
 
     @Test
     public void testUpdateByPrimaryKey() throws Exception{
-        User user = userService.findByPrimaryKey(2);
+        User user = userService.findByPrimaryKey("340822198905045235");
         logger.info("current user info:" + user);
-        user.setName("xiaobianchen");
-        user.setAge(28);
 
+        user.setUsername("xiaobianchen");
+        user.setPhone("15901705642");
         userService.updateByPrimaryKey(user);
         logger.info("update user info:" + user);
     }

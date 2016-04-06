@@ -3,26 +3,27 @@
 <mapper namespace="com.simple.maper.UserMapper" >
 
        <resultMap id="BaseResultMap" type="com.simple.model.User" >
-              <id column="id" property="id" jdbcType="INTEGER" />
-              <result column="name" property="name" jdbcType="VARCHAR" />
-              <result column="age" property="age" jdbcType="INTEGER" />
+              <id column="id" property="id" jdbcType="VARCHAR" />
+              <result column="username" property="username" jdbcType="VARCHAR" />
+              <result column="password" property="password" jdbcType="VARCHAR" />
+              <result column="realName" property="realName" jdbcType="VARCHAR"/>
+              <result column="phone"    property="phone"    jdbcType="VARCHAR"/>
        </resultMap>
 
        <sql id="Base_Column_List" >
-              id, name, age
+              id, username, password,realName,phone
        </sql>
 
        <insert id="insertUser" parameterType="com.simple.model.User" >
-              INSERT INTO user (id, name, age)
-              VALUES (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
-              #{age,jdbcType=INTEGER})
+              INSERT INTO user (id, username,password,realName,phone)
+              VALUES (
+                     #{id,jdbcType=VARCHAR},
+                     #{username,jdbcType=VARCHAR},
+                     #{password,jdbcType=VARCHAR},
+                     #{realName,jdbcType=VARCHAR},
+                     #{phone,jdbcType=VARCHAR}
+              )
        </insert>
-
-
-       <delete id="deleteUser" parameterType="java.lang.Integer">
-              DELETE FROM user
-              WHERE id = #{id,jdbcType=INTEGER}
-       </delete>
 
        <select id="listAll" resultMap="BaseResultMap" >
               SELECT
@@ -30,18 +31,25 @@
               FROM user
        </select>
 
-       <select id="findByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+       <select id="findByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
               SELECT
               <include refid="Base_Column_List" />
               FROM user
-              WHERE id = #{id,jdbcType=INTEGER}
+              WHERE id = #{id,jdbcType=VARCHAR}
        </select>
 
        <update id="updateByPrimaryKey" parameterType="com.simple.model.User">
               UPDATE user
-              set name = #{name,jdbcType=VARCHAR},
-              age = #{age,jdbcType=INTEGER}
-              where id = #{id,jdbcType=INTEGER}
+              set
+                     username = #{username,jdbcType=VARCHAR},
+                     phone = #{phone,jdbcType=VARCHAR}
+              where id = #{id,jdbcType=VARCHAR}
        </update>
+
+       <delete id="deleteUser" parameterType="java.lang.String">
+              DELETE FROM user
+              WHERE id = #{id,jdbcType=VARCHAR}
+       </delete>
+
 
 </mapper>
