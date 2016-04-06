@@ -20,7 +20,6 @@
 <!-- BEGIN HEADER -->
 <div class="header navbar navbar-fixed-top">
     <!-- BEGIN TOP NAVIGATION BAR -->
-
     <div class="header-inner">
         <!-- BEGIN LOGO -->
         <a class="navbar-brand" href="/simple" style="color:white;padding-left: 30px">
@@ -55,7 +54,6 @@
                 <li class="sidebar-toggler-wrapper">
                 </li>
                 <li class="sidebar-search-wrapper">
-
                 </li>
                 <li class="  start active  ">
                     <a href="javascript:;">
@@ -219,18 +217,21 @@
                                         <div class="form-group">
                                             <label class="col-md-1 control-label">用户名称:
                                             </label>
+
                                             <div class="col-md-2">
                                                 <input name="username" type="text" value="" class="form-control"/>
                                             </div>
 
                                             <label class="col-md-1 control-label">下单时间:
                                             </label>
+
                                             <div class="col-md-2">
                                                 <input name="orderedTime" type="text" value="" class="form-control"/>
                                             </div>
 
                                             <label class="col-md-1 control-label">用户电话:
                                             </label>
+
                                             <div class="col-md-2">
                                                 <input name="phoneNumber" type="text" value="" class="form-control"/>
                                             </div>

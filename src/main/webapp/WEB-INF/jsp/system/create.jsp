@@ -12,6 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <jsp:include page="../common/main.jsp"/>
+
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -205,7 +206,7 @@
             <!-- BEGIN PAGE CONTENT-->
             <div class="row">
                 <div class="col-md-12">
-                    <form class="form-horizontal form-row-seperated" method="post" action="/simple/saveUser.action">
+                    <form class="form-horizontal form-row-seperated" method="post" modelAttribute="user" action="/simple/saveUser.action">
                         <input type="hidden" name="_form_token" value="8e2479ea-334e-491f-bc0b-8c739c2c8791">
 
                         <div class="portlet">
