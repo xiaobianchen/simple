@@ -13,6 +13,18 @@ public class User {
     private String realName;//真实姓名
     private String phone;//手机号码
 
+    public User() {
+
+    }
+
+    public User(String id, String username, String password, String realName, String phone) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.realName = realName;
+        this.phone = phone;
+    }
+
     public String getId() {
         return id;
     }
