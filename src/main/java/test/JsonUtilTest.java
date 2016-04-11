@@ -1,14 +1,12 @@
 package test;
 
-import com.simple.model.User;
-
-import java.util.List;
-
 /**
  * @author xiaobianchen
  * @version 1.0 2016/4/10
  */
-public final class JsonUtil {
+public final class JsonUtilTest {
+
+
     public static void main(String[] args) {
 
         //将数组转换为JSON
@@ -61,9 +59,9 @@ public final class JsonUtil {
 
 
         //json 转换为list
-        String json = "[{\"id\":\"1\",\"password\":\"password\",\"phone\":\"1860170564\",\"realName\":\"zhang\",\"username\":\"zhangsan\"},{\"id\":\"2\",\"password\":\"password2\",\"phone\":\"1860170563\",\"realName\":\"zhang\",\"username\":\"zhangsan2\"}]";
-        List<User> userList = com.simple.util.JsonUtil.fromJson2List(json, User.class);
-        System.out.println(userList);
-        System.out.println(userList.size());
+//        String json = "[{\"id\":\"1\",\"password\":\"password\",\"phone\":\"1860170564\",\"realName\":\"zhang\",\"username\":\"zhangsan\"},{\"id\":\"2\",\"password\":\"password2\",\"phone\":\"1860170563\",\"realName\":\"zhang\",\"username\":\"zhangsan2\"}]";
+//        List<User> userList = JsonTools.fromJson2List(json);
+//        System.out.println(userList);
+//        System.out.println(userList.size());
     }
 }

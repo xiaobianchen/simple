@@ -1,3 +1,4 @@
+/*
 package com.simple.util;
 
 import net.sf.json.JSON;
@@ -17,19 +18,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+*/
 /**
  * @author xiaobianchen
  * @version 1.0 2016/4/6
- */
+ *//*
+
 public final class JsonUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(JsonUtil.class);
 
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
-    /**
+    */
+/**
      * 将数组转换为JSON
-     */
+     *//*
+
     public static <T> String toJson(String[] array) {
         String json;
         try {
@@ -42,9 +47,11 @@ public final class JsonUtil {
     }
 
 
-    /**
+    */
+/**
      * 将POJO转换为JSON
-     */
+     *//*
+
     public static <T> String toJson(T obj) {
         String json;
         try {
@@ -57,17 +64,21 @@ public final class JsonUtil {
         return json;
     }
 
-    /**
+    */
+/**
      * 将List转换为JSON
-     */
+     *//*
+
     public static <T> String fromList2Json(List<T> list) {
         JSONArray jsonArray = JSONArray.fromObject(list);
         return jsonArray.toString();
     }
 
-    /**
+    */
+/**
      * 将Map转换为JSON
-     */
+     *//*
+
     public static  String fromMap2Json(Map map ){
         String json;
         try {
@@ -79,9 +90,11 @@ public final class JsonUtil {
         return json;
     }
 
-    /**
+    */
+/**
      * 将SET转换为JSON
-     */
+     *//*
+
     public static String fromSet2Json(Set set){
         String json;
         try {
@@ -93,9 +106,11 @@ public final class JsonUtil {
         return json;
     }
 
-    /**
+    */
+/**
      * 将XML转换为JSON
-     */
+     *//*
+
     public static String convertXML2JSON(String fileName) {
         InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
         String xml;
@@ -113,9 +128,11 @@ public final class JsonUtil {
     }
 
 
-    /**
+    */
+/**
      * 将JSON转换为POJO
-     */
+     *//*
+
     public static <T> T fromJson(String json, Class<T> type) {
         T pojo;
         try {
@@ -128,9 +145,11 @@ public final class JsonUtil {
         return pojo;
     }
 
-    /**
+    */
+/**
      * 将JSON转换为List
-     */
+     *//*
+
     @SuppressWarnings("unchecked")
     public static <T> List<T> fromJson2List(String json, Class<T> type) {
         JSONArray jsonArray = JSONArray.fromObject(json);
@@ -147,9 +166,11 @@ public final class JsonUtil {
     }
 
 
-    /**
+    */
+/**
      * 将JSON转换为XML
-     */
+     *//*
+
     public static String toXml(String json) {
         JSON result = JSONSerializer.toJSON(json);
         XMLSerializer xmlSerializer = new XMLSerializer();
@@ -158,3 +179,4 @@ public final class JsonUtil {
         return xmlSerializer.write(result);
     }
 }
+*/
