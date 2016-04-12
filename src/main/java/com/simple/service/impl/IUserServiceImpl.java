@@ -19,11 +19,13 @@ public class IUserServiceImpl implements IUserService {
     private UserMapper userMapper;
 
     @Override
-    public void insertUser(User user) {
-        userMapper.insertUser(user);
+    @SuppressWarnings("unchecked")
+    public void insert(Object obj) {
+        userMapper.insert(obj);
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public List<User> listAll() {
         return userMapper.listAll();
     }

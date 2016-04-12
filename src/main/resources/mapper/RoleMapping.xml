@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.simple.maper.RoleMapper" >
+
+       <resultMap id="BaseResultMap" type="com.simple.model.Role" >
+              <result column="roleName" property="roleName" jdbcType="VARCHAR" />
+              <result column="roleDesc" property="roleDesc" jdbcType="VARCHAR" />
+       </resultMap>
+
+       <sql id="Base_Column_List" >
+              roleName,roleDesc
+       </sql>
+
+       <insert id="insert" parameterType="com.simple.model.Role" >
+              INSERT INTO role(roleName,roleDesc)
+              VALUES (
+              #{roleName,jdbcType=VARCHAR},
+              #{roleDesc,jdbcType=VARCHAR}
+              )
+       </insert>
+
+       <select id="listAll" resultMap="BaseResultMap" >
+              SELECT
+              <include refid="Base_Column_List" />
+              FROM role
+       </select>
+
+       <delete id="deleteByRoleName" parameterType="java.lang.String">
+              DELETE FROM role
+              WHERE roleName = #{roleName,jdbcType=VARCHAR}
+       </delete>
+
+       <select id="findByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+              SELECT <include refid="Base_Column_List"/>
+              FROM role
+              WHERE roleName=#{roleName,jdbcType=VARCHAR}
+       </select>
+
+       <update id="update"  parameterType="com.simple.model.Role">
+              UPDATE role
+              SET roleName=#{roleName,jdbcType=VARCHAR},
+                  roleDesc=#{roleDesc,jdbcType=VARCHAR}
+              WHERE roleName=#{roleName,jdbcType=VARCHAR}
+       </update>
+</mapper>

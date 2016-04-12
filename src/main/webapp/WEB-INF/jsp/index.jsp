@@ -112,12 +112,12 @@
                         </span>
                             </a>
                         </li>
-                        <li class="/simple/role.action">
-                            <a href="#">
+                        <li class="tooltips">
+                            <a href="/simple/role.action">
                                 角色配置
                             </a>
                         </li>
-                        <li class="tooltips ">
+                        <li class="tooltips">
                             <a href="/simple/sms.action">
                                 短信设置
                             </a>
@@ -322,7 +322,7 @@
                                     <div class="dataTables_paginate paging_bootstrap">
                                         <ul class="pagination" style="visibility: visible;">
                                             <li>
-                                                <a href="http://wy.foodoon.com/bill/unpaypay/stat.htm?pageNo=1&villageId=1&buildingId=&unitId=&suiteId=&feeType=$unpaySearchForm.feeType&search=1">首页</a>
+                                                <a href="#">首页</a>
                                             </li>
                                             <li><a>上一页</a></li>
                                             <li><a>下一页</a></li>

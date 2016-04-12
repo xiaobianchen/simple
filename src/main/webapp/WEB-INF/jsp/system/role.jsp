@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>>
 <html>
 <head>
     <title>订餐管理系统</title>
@@ -122,7 +123,7 @@
                             </a>
                         </li>
                         <li class="tooltips ">
-                            <a href="#">
+                            <a href="/simple/role.action">
                                 角色配置
                             </a>
                         </li>
@@ -199,7 +200,7 @@
                     <ul class="page-breadcrumb breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>
-                            <a href="http://wy.foodoon.com/sys/role/list.htm">
+                            <a href="#">
                                 角色设置
                             </a>
                             <i class="fa fa-angle-right"></i>
@@ -222,7 +223,7 @@
                         <div class="portlet-title">
 
                             <div class="actions">
-                                <a href="http://wy.foodoon.com/sys/role/create.htm" class="btn default yellow-stripe">
+                                <a href="/simple/createRole.action" class="btn default yellow-stripe">
                                     <i class="fa fa-plus"></i>
 									<span class="hidden-480">
 										 新建角色
@@ -252,62 +253,18 @@
 
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>village_admin</td>
-                                        <td>小区管理员</td>
-
-                                        <td>
-                                            <a  href="http://wy.foodoon.com/sys/role/resourceRel/create.htm?id=1"     class=" btn btn-sm default">绑定资源
-                                            </a>
-
-                                            <a title="编辑" href="http://wy.foodoon.com/sys/role/edit.htm?id=1"     class=" btn btn-sm default"><i class="fa fa-pencil"></i> 编辑
-                                            </a>
-                                            <a title="删除" href="javascript:;"  data-id="1"    class="del_btn btn btn-sm default filter-cancel"><i class="fa fa-times"></i> 删除
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>village_finance</td>
-                                        <td>小区财务</td>
-
-                                        <td>
-                                            <a  href="http://wy.foodoon.com/sys/role/resourceRel/create.htm?id=3"     class=" btn btn-sm default">绑定资源
-                                            </a>
-
-                                            <a title="编辑" href="http://wy.foodoon.com/sys/role/edit.htm?id=3"     class=" btn btn-sm default"><i class="fa fa-pencil"></i> 编辑
-                                            </a>
-                                            <a title="删除" href="javascript:;"  data-id="3"    class="del_btn btn btn-sm default filter-cancel"><i class="fa fa-times"></i> 删除
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>admin_fee</td>
-                                        <td>缴费专员</td>
-
-                                        <td>
-                                            <a  href="http://wy.foodoon.com/sys/role/resourceRel/create.htm?id=4"     class=" btn btn-sm default">绑定资源
-                                            </a>
-
-                                            <a title="编辑" href="http://wy.foodoon.com/sys/role/edit.htm?id=4"     class=" btn btn-sm default"><i class="fa fa-pencil"></i> 编辑
-                                            </a>
-                                            <a title="删除" href="javascript:;"  data-id="4"    class="del_btn btn btn-sm default filter-cancel"><i class="fa fa-times"></i> 删除
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>xx_hs</td>
-                                        <td>香榭核算员</td>
-
-                                        <td>
-                                            <a  href="http://wy.foodoon.com/sys/role/resourceRel/create.htm?id=5"     class=" btn btn-sm default">绑定资源
-                                            </a>
-
-                                            <a title="编辑" href="http://wy.foodoon.com/sys/role/edit.htm?id=5"     class=" btn btn-sm default"><i class="fa fa-pencil"></i> 编辑
-                                            </a>
-                                            <a title="删除" href="javascript:;"  data-id="5"    class="del_btn btn btn-sm default filter-cancel"><i class="fa fa-times"></i> 删除
-                                            </a>
-                                        </td>
-                                    </tr>
+                                        <c:forEach items="${roles}" var="vs">
+                                            <tr>
+                                                <td>${vs.roleName}</td>
+                                                <td>${vs.roleDesc}</td>
+                                                <td>
+                                                    <a title="编辑" href="/simple/edit_roles/${vs.roleName}" class=" btn btn-sm default"><i class="fa fa-pencil"></i> 编辑
+                                                    </a>
+                                                    <a title="删除" href="javascript:;"  data-id="${vs.roleName}"    class="del_btn btn btn-sm default filter-cancel"><i class="fa fa-times"></i> 删除
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                                 <!--分页开始-->
@@ -342,6 +299,30 @@
 
         $(document).ready(function () {
             App.init(); // initlayout and core plugins
+
+            $('.del_btn').click(function(){
+                var obj = $(this)
+                bootbox.confirm("确定要删除吗?", function(result) {
+                    if(result){
+                        $.ajax({
+                            url: '/simple/doDeleteRole.action',
+                            type: "POST",
+                            timeout:6000,
+                            data:{
+                                roleName:obj.attr('data-id'),
+                            },
+                            dataType: 'json',
+                            success: function(data){
+
+                            },
+                            error:function(){
+                                window.location.href="/simple/role.action";
+                            }
+                        });
+                    }
+
+                });
+            });
         });
     </script>
 </div>

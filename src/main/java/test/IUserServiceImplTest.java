@@ -38,7 +38,7 @@ public class IUserServiceImplTest {
         user.setPassword("123456");
         user.setRealName("xiaobian");
         user.setPhone("18601705642");
-        userService.insertUser(user);
+        userService.insert(user);
         logger.info("insert user successfully!");
     }
 

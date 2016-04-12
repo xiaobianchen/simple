@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * @author xiaobianchen
  * @version 1.0 2016/4/5
+ *
+ * 登录模块
  */
 @Controller
 public class LoginController {

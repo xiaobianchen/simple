@@ -1,18 +1,71 @@
 <%--
   Created by IntelliJ IDEA.
   User: jchen19
-  Date: 2016/4/5
-  Time: 15:40
+  Date: 2016/4/11
+  Time: 17:38
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>订餐管理系统</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-    <jsp:include page="../common/main.jsp"/>
+    <!--loading all css files-->
+    <link href="http://static.wy.foodoon.com/admin/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/uniform.default.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/style-metronic.css" />" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/style.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/style-responsive.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/plugins.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/light.css"/>" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="<c:url value="/css/style.min.css"/> " rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/login.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/img/favicon.ico"/>" rel="shortcut icon"/>
+    <link href="<c:url value="/css/datepicker.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/bootstrap-timepicker.min.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/colorpicker.css"/> " rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/daterangepicker-bs3.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/datetimepicker.css"/> " rel="stylesheet" type="text/css"/>
+
+    <!--loading all js files-->
+    <script src="<c:url value="/js/jquery-1.11.1.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery-migrate-1.2.1.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/bootstrap.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/bootstrap-hover-dropdown.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.slimscroll.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.blockui.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.cokie.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.uniform.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/login.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/respond.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/excanvas.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.flot.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.flot.resize.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.flot.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.flot.stack.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.flot.crosshair.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.flot.categories.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/app.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/charts.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/ui-alert-dialog-api.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/bootbox.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/plupload.full.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jstree.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/bootstrap-datepicker.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/bootstrap-datepicker.zh-CN.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/bootstrap-timepicker.min.js"/>"></script>
+    <script src="<c:url value="/js/clockface.js"/>"></script>
+    <script src="<c:url value="/js/jquery.flot.min.js"/>"></script>
+    <script src="<c:url value="/js/daterangepicker.js"/>"></script>
+    <script src="<c:url value="/js/bootstrap-colorpicker.js"/>"></script>
+    <script src="<c:url value="/js/bootstrap-datetimepicker.min.js"/>" type="text/javascript"></script>
+
+
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -194,133 +247,70 @@
             <ul class="page-breadcrumb breadcrumb">
                 <li>
                     <i class="fa fa-home"></i>
-                    <a href="#">
-                        管理员设置
+                    <a href="/simple/role.action">
+                        设置角色
                     </a>
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
-                    管理员列表
+                    添加角色
                 </li>
             </ul>
             <!-- BEGIN PAGE CONTENT-->
             <div class="row">
-                <div class="col-md-12 page-500">
+                <div class="col-md-12">
+                    <form:form class="form-horizontal form-row-seperated" method="post" modelAttribute="role">
+                        <input type="hidden" name="_form_token" value="8e2479ea-334e-491f-bc0b-8c739c2c8791">
 
-                    <!-- Begin: life time stats -->
-                    <div class="portlet">
-                        <div class="portlet-title">
+                        <div class="portlet">
+                            <div class="portlet-body">
+                                <div class="tabbable">
 
-                            <div class="actions">
-                                <a href="/simple/create.action" class="btn default yellow-stripe">
-                                    <i class="fa fa-plus"></i>
-									<span class="hidden-480">
-										 新建管理员
-									</span>
-                                </a>
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">角色名称:
+                                                <span class="required">*</span>
+                                            </label>
 
-                            </div>
-                        </div>
-                        <div class="portlet-body">
-                            <div class="table-container">
+                                            <div class="col-md-6">
+                                                <input class="form-control placeholder-no-fix" type="text"
+                                                       name="roleName" value="${role.roleName}"/>
+                                            </div>
+                                        </div>
 
-                                <table class="table table-striped table-bordered table-hover" id="datatable_orders">
-                                    <thead>
-                                    <tr role="row" class="heading">
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">角色描述
+                                                <span class="required">*</span>
+                                            </label>
 
-                                        <th width="10%">
-                                            真实姓名
-                                        </th>
-                                        <th width="10%">
-                                            登录名
-                                        </th>
-                                        <th width="10%">
-                                            手机号
-                                        </th>
-                                        <th width="10%">
-                                            身份证号码
-                                        </th>
-                                        <th width="10%">
-                                            操作
-                                        </th>
-                                    </tr>
+                                            <div class="col-md-6">
+                                                <input class="form-control placeholder-no-fix" type="text"
+                                                       name="roleDesc" value="${role.roleDesc}"/>
+                                            </div>
+                                        </div>
 
-                                    </thead>
-                                    <tbody>
-                                    <c:forEach items="${userList}" var="vs">
-                                        <tr>
-                                            <td>${vs.realName}</td>
-                                            <td>${vs.username}</td>
-                                            <td>${vs.phone}</td>
-                                            <td>${vs.id}</td>
-                                            <td>
-                                                <a title="编辑" href="/simple/edit.action/${vs.id}"
-                                                   class=" btn btn-sm default"><i class="fa fa-pencil"></i> 编辑
-                                                </a>
-                                                <a title="删除" href="javascript:;" data-id=${vs.id}
-                                                   class="del_btn btn btn-sm default filter-cancel"><i
-                                                        class="fa fa-times"></i> 删除
-                                                </a>
-                                            </td>
-                                        </tr>
 
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
-                                <!--分页开始-->
-
-                                <div class="pull-right">
-                                    <div class="dataTables_paginate paging_bootstrap">
-                                        <ul class="pagination" style="visibility: visible;">
-                                            <li><a>首页</a></li>
-                                            <li><a>上一页</a></li>
-                                            <li><a>1</a></li>
-                                            <li><a>下一页</a></li>
-                                            <li><a>末页</a></li>
-
-                                        </ul>
+                                        <div class="form-group">
+                                            <div class="col-md-2"></div>
+                                            <div class="col-md-6">
+                                                <button class="btn green" type="submit"><i class="fa fa-check"></i> 保存
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
-                                <!-- 分页结束-->
                             </div>
                         </div>
-                    </div>
-                    <!-- End: life time stats -->
-
+                    </form:form>
                 </div>
             </div>
-            <!-- END PAGE CONTENT-->
         </div>
     </div>
 
     <script>
-        $(document).ready(function() {
+
+        $(document).ready(function () {
             App.init(); // initlayout and core plugins
-
-            $('.del_btn').click(function(){
-                var obj = $(this)
-                bootbox.confirm("确定要删除吗?", function(result) {
-                    if(result){
-                        $.ajax({
-                            url: '/simple/doDelete.action',
-                            type: "POST",
-                            timeout:6000,
-                            data:{
-                                id:obj.attr('data-id'),
-                            },
-                            dataType: 'json',
-                            success: function(){
-
-                            },
-                            error:function(){
-                                window.location.href = "/simple/admin.action";
-                            }
-                        });
-                    }
-
-                });
-            });
         });
     </script>
 </div>
@@ -328,3 +318,5 @@
 
 </body>
 </html>
+
+

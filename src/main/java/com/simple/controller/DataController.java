@@ -7,14 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * @author xiaobianchen
  * @version 1.0 2016/4/6
+ * 数据汇总功能
  */
 @Controller
-public class IncomeController {
+public class DataController {
 
-    @RequestMapping(value = "/Income.action",method = RequestMethod.GET)
+    @RequestMapping(value = "/data.action",method = RequestMethod.GET)
     public String revenueSummary(){
-        return "data/revenueSummary";
+        return "data/list";
     }
-
-
 }

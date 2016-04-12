@@ -14,7 +14,7 @@
               id, username, password,realName,phone
        </sql>
 
-       <insert id="insertUser" parameterType="com.simple.model.User" >
+       <insert id="insert" parameterType="com.simple.model.User" >
               INSERT INTO user (id, username,password,realName,phone)
               VALUES (
                      #{id,jdbcType=VARCHAR},
