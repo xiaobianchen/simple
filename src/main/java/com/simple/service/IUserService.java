@@ -1,16 +1,20 @@
 package com.simple.service;
 
 import com.simple.model.User;
+import com.simple.util.PagedResult;
 
 /**
  * @author xiaobianchen
  * @version 1.0 2016/4/4
  */
-public interface IUserService extends IGenericService{
+public interface IUserService extends IGenericService {
 
     User findByPrimaryKey(String id);
 
     void updateByPrimaryKey(User user);
 
     void deleteUser(String id);
+
+    PagedResult<User> queryByPage(String username, Integer pageNo, Integer pageSize);
+
 }

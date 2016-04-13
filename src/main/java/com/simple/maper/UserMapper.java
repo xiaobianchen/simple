@@ -1,6 +1,9 @@
 package com.simple.maper;
 
 import com.simple.model.User;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @author xiaobianchen
@@ -14,4 +17,7 @@ public interface UserMapper extends IGenericMapper{
     User findByPrimaryKey(String id);
 
     void updateByPrimaryKey(User user);
+
+    List<User> selectUserByUserName(@Param("username") String username);
+
 }

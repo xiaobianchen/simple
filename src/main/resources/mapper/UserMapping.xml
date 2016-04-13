@@ -38,6 +38,15 @@
               WHERE id = #{id,jdbcType=VARCHAR}
        </select>
 
+       <select id="selectUserByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
+              SELECT *
+              FROM user
+              WHERE 1 = 1
+              <if test="username != null and username !=''">
+                     AND  username= #{username,jdbcType=VARCHAR}
+              </if>
+       </select>
+
        <update id="updateByPrimaryKey" parameterType="com.simple.model.User">
               UPDATE user
               set

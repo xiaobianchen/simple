@@ -1,8 +1,11 @@
 package com.simple.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.simple.maper.UserMapper;
 import com.simple.model.User;
 import com.simple.service.IUserService;
+import com.simple.util.BeanUtil;
+import com.simple.util.PagedResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,5 +46,13 @@ public class IUserServiceImpl implements IUserService {
     @Override
     public void deleteUser(String id) {
         userMapper.deleteUser(id);
+    }
+
+    @Override
+    public PagedResult<User> queryByPage(String username, Integer pageNo, Integer pageSize) {
+        pageNo = pageNo==null?1:pageNo;
+        pageSize = pageSize==null?10:pageSize;
+        PageHelper.startPage(pageNo, pageSize);
+        return BeanUtil.toPagedResult(userMapper.selectUserByUserName(username));
     }
 }

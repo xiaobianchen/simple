@@ -2,6 +2,7 @@ package test;
 
 import com.simple.model.User;
 import com.simple.service.IUserService;
+import com.simple.util.PagedResult;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -69,6 +70,12 @@ public class IUserServiceImplTest {
         user.setPhone("15901705642");
         userService.updateByPrimaryKey(user);
         logger.info("update user info:" + user);
+    }
+
+    @Test
+    public void queryByPage() {
+        PagedResult<User> result = userService.queryByPage("admin2", 1, 10);
+        System.out.println(result);
     }
 
 }

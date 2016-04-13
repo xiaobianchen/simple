@@ -6,12 +6,62 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>订餐管理系统</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-    <jsp:include page="../common/main.jsp"/>
+    <link href="http://static.wy.foodoon.com/admin/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/uniform.default.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/style-metronic.css" />" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/style.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/style-responsive.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/plugins.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/light.css"/>" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="<c:url value="/css/style.min.css"/> " rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/login.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/img/favicon.ico"/>" rel="shortcut icon"/>
+    <link href="<c:url value="/css/datepicker.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/bootstrap-timepicker.min.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/colorpicker.css"/> " rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/daterangepicker-bs3.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/css/datetimepicker.css"/> " rel="stylesheet" type="text/css"/>
+
+    <!--loading all js files-->
+    <script src="<c:url value="/js/jquery-1.11.1.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery-migrate-1.2.1.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/bootstrap.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/bootstrap-hover-dropdown.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.slimscroll.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.blockui.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.cokie.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.uniform.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/login.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/respond.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/excanvas.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.flot.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.flot.resize.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.flot.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.flot.stack.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.flot.crosshair.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jquery.flot.categories.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/app.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/charts.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/ui-alert-dialog-api.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/bootbox.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/plupload.full.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/jstree.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/bootstrap-datepicker.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/bootstrap-datepicker.zh-CN.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/js/bootstrap-timepicker.min.js"/>"></script>
+    <script src="<c:url value="/js/clockface.js"/>"></script>
+    <script src="<c:url value="/js/jquery.flot.min.js"/>"></script>
+    <script src="<c:url value="/js/daterangepicker.js"/>"></script>
+    <script src="<c:url value="/js/bootstrap-colorpicker.js"/>"></script>
+    <script src="<c:url value="/js/bootstrap-datetimepicker.min.js"/>" type="text/javascript"></script>
 
 </head>
 <!-- END HEAD -->
@@ -221,7 +271,7 @@
 
                                             <div class="col-md-6">
                                                 <input class="form-control placeholder-no-fix" type="text"
-                                                       name="username" value=""/>
+                                                       name="username" value="${user.username}"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -231,7 +281,7 @@
 
                                             <div class="col-md-6">
                                                 <input class="form-control placeholder-no-fix" type="password"
-                                                       name="password" value=""/>
+                                                       name="password" value="${user.password}"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -241,7 +291,7 @@
 
                                             <div class="col-md-6">
                                                 <input class="form-control placeholder-no-fix" type="text"
-                                                       name="realName" value=""/>
+                                                       name="realName" value="${user.realName}"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -251,7 +301,7 @@
 
                                             <div class="col-md-6">
                                                 <input class="form-control placeholder-no-fix" type="text"
-                                                       name="id" value=""/>
+                                                       name="id" value="${user.id}"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -260,7 +310,7 @@
 
                                             <div class="col-md-6">
                                                 <input class="form-control placeholder-no-fix" type="text"
-                                                       name="phone" value=""/>
+                                                       name="phone" value="${user.phone}"/>
                                             </div>
                                         </div>
                                         <div class="form-group">

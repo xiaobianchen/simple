@@ -1,5 +1,6 @@
 package com.simple.controller;
 
+import com.simple.exception.DuplicationException;
 import com.simple.model.Role;
 import com.simple.model.User;
 import com.simple.service.IRoleService;
@@ -161,8 +162,11 @@ public class SystemController {
     @RequestMapping(value = "/saveUser.action",method = RequestMethod.POST)
     public String saveAdmin(@ModelAttribute("user") User user){
         logger.info("save admin successfully!");
-        userService.insert(user);
-
+        try{
+            userService.insert(user);
+        }catch(DuplicationException e){
+            logger.error("Duplicate entry ",e);
+        }
         return "redirect:/admin.action";
     }
 }

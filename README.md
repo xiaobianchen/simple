@@ -1,1 +1,1 @@
-spring+ibatis+maven+git
+springmvc+ibatis+maven+git+bootstrap
