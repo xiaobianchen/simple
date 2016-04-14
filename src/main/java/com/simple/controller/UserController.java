@@ -13,6 +13,7 @@ import javax.annotation.Resource;
 /**
  * @author xiaobianchen
  * @version 1.0 2016/4/13
+ * 分页查询
  */
 @Controller
 public class UserController extends BaseController{
