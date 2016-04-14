@@ -3,6 +3,8 @@ package com.simple.common;
 /**
  * @author xiaobianchen
  * @version 1.0 2016/4/13
+ *
+ * Http处理结果
  */
 public interface HttpConstants {
 
