@@ -244,7 +244,7 @@
             <ul class="page-breadcrumb breadcrumb">
                 <li>
                     <i class="fa fa-home"></i>
-                    <a href="#">
+                    <a href="/simple/admin.action">
                         设置管理员
                     </a>
                     <i class="fa fa-angle-right"></i>
@@ -256,7 +256,7 @@
             <!-- BEGIN PAGE CONTENT-->
             <div class="row">
                 <div class="col-md-12">
-                    <form class="form-horizontal form-row-seperated" method="post" modelAttribute="user" action="/simple/saveUser.action">
+                    <form class="form-horizontal form-row-seperated" method="post" modelAttribute="user">
                         <input type="hidden" name="_form_token" value="8e2479ea-334e-491f-bc0b-8c739c2c8791">
 
                         <div class="portlet">

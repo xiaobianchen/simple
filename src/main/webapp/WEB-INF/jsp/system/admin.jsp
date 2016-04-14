@@ -194,7 +194,7 @@
             <ul class="page-breadcrumb breadcrumb">
                 <li>
                     <i class="fa fa-home"></i>
-                    <a href="/admin.action">
+                    <a href="/simple/admin.action">
                         管理员设置
                     </a>
                     <i class="fa fa-angle-right"></i>

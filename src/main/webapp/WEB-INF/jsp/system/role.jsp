@@ -200,7 +200,7 @@
                     <ul class="page-breadcrumb breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>
-                            <a href="#">
+                            <a href="/simple/role.action">
                                 角色设置
                             </a>
                             <i class="fa fa-angle-right"></i>
@@ -272,11 +272,11 @@
                                 <div class="pull-right">
                                     <div class="dataTables_paginate paging_bootstrap">
                                         <ul  class="pagination" style="visibility: visible;">
-                                            <li class="disabled"><a>首页</a></li>
-                                            <li class="disabled"><a>上一页</a></li>
-                                            <li class="disabled"><a>1</a></li>
-                                            <li class="disabled"><a>下一页</a></li>
-                                            <li class="disabled"><a>末页</a></li>
+                                            <li class=""><a>首页</a></li>
+                                            <li class=""><a>上一页</a></li>
+                                            <li class=""><a>1</a></li>
+                                            <li class=""><a>下一页</a></li>
+                                            <li class=""><a>末页</a></li>
 
                                         </ul>
                                     </div>

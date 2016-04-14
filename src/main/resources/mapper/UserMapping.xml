@@ -51,7 +51,8 @@
               UPDATE user
               set
                      username = #{username,jdbcType=VARCHAR},
-                     phone = #{phone,jdbcType=VARCHAR}
+                     phone = #{phone,jdbcType=VARCHAR},
+                     realName = #{realName,jdbcType=VARCHAR}
               where id = #{id,jdbcType=VARCHAR}
        </update>
 

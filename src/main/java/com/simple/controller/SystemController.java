@@ -50,7 +50,7 @@ public class SystemController {
      * 编辑管理员信息
      */
     @RequestMapping(value = "/edit.action/{id}",method = RequestMethod.GET)
-    public ModelAndView edit(@PathVariable("id") String id) {
+    public ModelAndView editAdmin(@PathVariable("id") String id) {
         User user = userService.findByPrimaryKey(id);
         logger.info("user info:" + user);
 
@@ -58,6 +58,19 @@ public class SystemController {
         model.addObject("user",user);
         model.setViewName("system/create");
         return model;
+    }
+
+    /**
+     * 编辑管理员信息
+     */
+    @RequestMapping(value = "/edit.action/{id}",method = RequestMethod.POST)
+    public String updateAdmin(@ModelAttribute("User") User user) {
+        if (user != null) {
+            userService.updateByPrimaryKey(user);
+            logger.info("update user successfully!");
+            logger.info("new user info:" + user);
+        }
+        return "redirect:/admin.action";
     }
 
     /**
@@ -159,7 +172,7 @@ public class SystemController {
     /**
      * 保存管理员操作
      */
-    @RequestMapping(value = "/saveUser.action",method = RequestMethod.POST)
+    @RequestMapping(value = "/create.action",method = RequestMethod.POST)
     public String saveAdmin(@ModelAttribute("user") User user){
         logger.info("save admin successfully!");
         try{
