@@ -1,7 +1,11 @@
 package com.simple.service;
 
+import com.simple.exception.LoginException;
+import com.simple.exception.RegisterException;
 import com.simple.model.User;
 import com.simple.util.PagedResult;
+
+import java.util.Map;
 
 /**
  * @author xiaobianchen
@@ -16,5 +20,9 @@ public interface IUserService extends IGenericService {
     void deleteUser(String id);
 
     PagedResult<User> queryByPage(String username, Integer pageNo, Integer pageSize);
+
+    void login(String username, String password) throws LoginException;
+
+    void register(Map<String,String> fieldMap) throws RegisterException;
 
 }

@@ -41,7 +41,6 @@
         <jstl.version>1.2</jstl.version>
         <junit.version>4.12</junit.version>
         <log4j.version>1.7.7</log4j.version>
-        <servlet.version>2.5</servlet.version>
         <fastjson.version>1.2.7</fastjson.version>
         <jackson.version>1.9.13</jackson.version>
         <json-lib.version>2.4</json-lib.version>
@@ -51,6 +50,8 @@
         <shiro.version>1.2.3</shiro.version>
         <poi.version>3.13</poi.version>
         <slf4j.version>1.7.12</slf4j.version>
+        <commons-dbutils.version>1.6</commons-dbutils.version>
+
     </properties>
 
     <dependencies>
@@ -63,8 +64,8 @@
 
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>${servlet.version}</version>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
         </dependency>
 
 
@@ -113,6 +114,12 @@
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
             <version>${common-dbcp.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+            <version>${commons-dbutils.version}</version>
         </dependency>
 
         <dependency>

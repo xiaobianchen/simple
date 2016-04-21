@@ -35,7 +35,7 @@
                 <i class="fa fa-user"></i> 欢迎您：admin
             </li>
             <li>
-                <a style="color:white;" href="#">
+                <a style="color:white;" href="/simple/loggout.action">
                     <i class="fa fa-key"></i> 退出
                 </a>
             </li>

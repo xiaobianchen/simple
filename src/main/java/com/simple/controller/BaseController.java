@@ -1,5 +1,4 @@
 package com.simple.controller;
-
 import com.simple.common.HttpConstants;
 import com.simple.util.JsonDateValueProcessor;
 import net.sf.json.JSONArray;
