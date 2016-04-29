@@ -8,7 +8,7 @@ import com.simple.model.User;
 import com.simple.service.IUserService;
 import com.simple.util.BeanUtil;
 import com.simple.util.DBUtil;
-import com.simple.util.PagedResult;
+import com.simple.util.PageResult;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -64,7 +64,7 @@ public class IUserServiceImpl implements IUserService {
     }
 
     @Override
-    public PagedResult<User> queryByPage(String username, Integer pageNo, Integer pageSize) {
+    public PageResult<User> queryByPage(String username, Integer pageNo, Integer pageSize) {
         pageNo = pageNo==null?1:pageNo;
         pageSize = pageSize==null?10:pageSize;
         PageHelper.startPage(pageNo, pageSize);

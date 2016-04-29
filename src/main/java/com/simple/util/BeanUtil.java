@@ -10,8 +10,8 @@ import java.util.List;
  */
 public class BeanUtil {
 
-    public static <T> PagedResult<T> toPagedResult(List<T> datas) {
-        PagedResult<T> result = new PagedResult<T>();
+    public static <T> PageResult<T> toPagedResult(List<T> datas) {
+        PageResult<T> result = new PageResult<T>();
         if (datas instanceof Page) {
             Page page = (Page) datas;
             result.setPageNo(page.getPageNum());

@@ -1,4 +1,10 @@
 package com.simple.controller;
+
+/**
+ * @author xiaobianchen
+ * @version 1.0 2016/4/29
+ */
+
 import com.simple.common.HttpConstants;
 import com.simple.util.JsonDateValueProcessor;
 import net.sf.json.JSONArray;
@@ -9,109 +15,116 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Date;
 
+
 /**
- * Controller»ùÀà
+ * ControlleråŸºç±»
  */
 public class BaseController {
+
 
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
     protected final static String DATE_FORMATE = "yyyy-MM-dd";
 
     /**
-     * ·µ»Ø·şÎñ¶Ë´¦Àí½á¹û
-     * @param obj ·şÎñ¶ËÊä³ö¶ÔÏó
-     * @return Êä³ö´¦Àí½á¹û¸øÇ°¶ÎJSON¸ñÊ½Êı¾İ
+     * è¿”å›æœåŠ¡ç«¯å¤„ç†ç»“æœ
+     *
+     * @param obj æœåŠ¡ç«¯è¾“å‡ºå¯¹è±¡
+     * @return è¾“å‡ºå¤„ç†ç»“æœç»™å‰æ®µJSONæ ¼å¼æ•°æ®
      */
-	public String responseResult(Object obj){
-		JSONObject jsonObj = null;
-		if(obj != null){
-		    logger.info("ºó¶Ë·µ»Ø¶ÔÏó£º{}", obj);
-		    JsonConfig jsonConfig = new JsonConfig();
-		    jsonConfig.registerJsonValueProcessor(Date.class, new JsonDateValueProcessor());
-		    jsonObj = JSONObject.fromObject(obj, jsonConfig);
-		    logger.info("ºó¶Ë·µ»ØÊı¾İ£º" + jsonObj);
-		    if(HttpConstants.SERVICE_RESPONSE_SUCCESS_CODE.equals(jsonObj.getString(HttpConstants.SERVICE_RESPONSE_RESULT_FLAG))){
-		    	jsonObj.element(HttpConstants.RESPONSE_RESULT_FLAG_ISERROR, false);
-		    	jsonObj.element(HttpConstants.SERVICE_RESPONSE_RESULT_MSG, "");
-		    }else{
-		    	jsonObj.element(HttpConstants.RESPONSE_RESULT_FLAG_ISERROR, true);
-		    	String errMsg = jsonObj.getString(HttpConstants.SERVICE_RESPONSE_RESULT_MSG);
-		    	jsonObj.element(HttpConstants.SERVICE_RESPONSE_RESULT_MSG, errMsg==null?HttpConstants.SERVICE_RESPONSE_NULL:errMsg);
-		    }
-		}
-		logger.info("Êä³ö½á¹û£º{}", jsonObj.toString());
-		return jsonObj.toString();
-	}
+    public String responseResult(Object obj) {
+        JSONObject jsonObj = null;
+        if (obj != null) {
+            logger.info("åç«¯è¿”å›å¯¹è±¡ï¼š{}", obj);
+            JsonConfig jsonConfig = new JsonConfig();
+            jsonConfig.registerJsonValueProcessor(Date.class, new JsonDateValueProcessor());
+            jsonObj = JSONObject.fromObject(obj, jsonConfig);
+            logger.info("åç«¯è¿”å›æ•°æ®ï¼š" + jsonObj);
+            if (HttpConstants.SERVICE_RESPONSE_SUCCESS_CODE.equals(jsonObj.getString(HttpConstants.SERVICE_RESPONSE_RESULT_FLAG))) {
+                jsonObj.element(HttpConstants.RESPONSE_RESULT_FLAG_ISERROR, false);
+                jsonObj.element(HttpConstants.SERVICE_RESPONSE_RESULT_MSG, "");
+            } else {
+                jsonObj.element(HttpConstants.RESPONSE_RESULT_FLAG_ISERROR, true);
+                String errMsg = jsonObj.getString(HttpConstants.SERVICE_RESPONSE_RESULT_MSG);
+                jsonObj.element(HttpConstants.SERVICE_RESPONSE_RESULT_MSG, errMsg == null ? HttpConstants.SERVICE_RESPONSE_NULL : errMsg);
+            }
+        }
+        logger.info("è¾“å‡ºç»“æœï¼š{}", jsonObj.toString());
+        return jsonObj.toString();
+    }
 
-	/**
-     * ·µ»Ø³É¹¦
-     * @param obj Êä³ö¶ÔÏó
-     * @return Êä³ö³É¹¦µÄJSON¸ñÊ½Êı¾İ
+    /**
+     * è¿”å›æˆåŠŸ
+     *
+     * @param obj è¾“å‡ºå¯¹è±¡
+     * @return è¾“å‡ºæˆåŠŸçš„JSONæ ¼å¼æ•°æ®
      */
-	public String responseSuccess(Object obj){
-		JSONObject jsonObj = null;
-		if(obj != null){
-		    logger.info("ºó¶Ë·µ»Ø¶ÔÏó£º{}", obj);
-		    JsonConfig jsonConfig = new JsonConfig();
-		    jsonConfig.registerJsonValueProcessor(Date.class, new JsonDateValueProcessor());
-		    jsonObj = JSONObject.fromObject(obj, jsonConfig);
-		    logger.info("ºó¶Ë·µ»ØÊı¾İ£º" + jsonObj);
-		    jsonObj.element(HttpConstants.RESPONSE_RESULT_FLAG_ISERROR, false);
-		    jsonObj.element(HttpConstants.SERVICE_RESPONSE_RESULT_MSG, "");
-		}
-		logger.info("Êä³ö½á¹û£º{}", jsonObj.toString());
-		return jsonObj.toString();
-	}
+    public String responseSuccess(Object obj) {
+        JSONObject jsonObj = null;
+        if (obj != null) {
+            logger.info("åç«¯è¿”å›å¯¹è±¡ï¼š{}", obj);
+            JsonConfig jsonConfig = new JsonConfig();
+            jsonConfig.registerJsonValueProcessor(Date.class, new JsonDateValueProcessor());
+            jsonObj = JSONObject.fromObject(obj, jsonConfig);
+            logger.info("åç«¯è¿”å›æ•°æ®ï¼š" + jsonObj);
+            jsonObj.element(HttpConstants.RESPONSE_RESULT_FLAG_ISERROR, false);
+            jsonObj.element(HttpConstants.SERVICE_RESPONSE_RESULT_MSG, "");
+        }
+        logger.info("è¾“å‡ºç»“æœï¼š{}", jsonObj.toString());
+        return jsonObj.toString();
+    }
 
-	/**
-	 * ·µ»Ø³É¹¦
-	 * @param obj Êä³ö¶ÔÏó
-	 * @return Êä³ö³É¹¦µÄJSON¸ñÊ½Êı¾İ
-	 */
-	public String responseArraySuccess(Object obj){
-		JSONArray jsonObj = null;
-		if(obj != null){
-			logger.info("ºó¶Ë·µ»Ø¶ÔÏó£º{}", obj);
-			JsonConfig jsonConfig = new JsonConfig();
-			jsonConfig.registerJsonValueProcessor(Date.class, new JsonDateValueProcessor());
-			jsonObj = JSONArray.fromObject(obj, jsonConfig);
-			logger.info("ºó¶Ë·µ»ØÊı¾İ£º" + jsonObj);
-		}
-		logger.info("Êä³ö½á¹û£º{}", jsonObj.toString());
-		return jsonObj.toString();
-	}
-
-	/**
-     * ·µ»Ø³É¹¦
-     * @param obj Êä³ö¶ÔÏó
-     * @return Êä³ö³É¹¦µÄJSON¸ñÊ½Êı¾İ
+    /**
+     * è¿”å›æˆåŠŸ
+     *
+     * @param obj è¾“å‡ºå¯¹è±¡
+     * @return è¾“å‡ºæˆåŠŸçš„JSONæ ¼å¼æ•°æ®
      */
-	public String responseSuccess(Object obj, String msg){
-		JSONObject jsonObj = null;
-		if(obj != null){
-		    logger.info("ºó¶Ë·µ»Ø¶ÔÏó£º{}", obj);
-		    JsonConfig jsonConfig = new JsonConfig();
-		    jsonConfig.registerJsonValueProcessor(Date.class, new JsonDateValueProcessor());
-		    jsonObj = JSONObject.fromObject(obj, jsonConfig);
-		    logger.info("ºó¶Ë·µ»ØÊı¾İ£º" + jsonObj);
-		    jsonObj.element(HttpConstants.RESPONSE_RESULT_FLAG_ISERROR, false);
-		    jsonObj.element(HttpConstants.SERVICE_RESPONSE_RESULT_MSG, msg);
-		}
-		logger.info("Êä³ö½á¹û£º{}", jsonObj.toString());
-		return jsonObj.toString();
-	}
+    public String responseArraySuccess(Object obj) {
+        JSONArray jsonObj = null;
+        if (obj != null) {
+            logger.info("åç«¯è¿”å›å¯¹è±¡ï¼š{}", obj);
+            JsonConfig jsonConfig = new JsonConfig();
+            jsonConfig.registerJsonValueProcessor(Date.class, new JsonDateValueProcessor());
+            jsonObj = JSONArray.fromObject(obj, jsonConfig);
+            logger.info("åç«¯è¿”å›æ•°æ®ï¼š" + jsonObj);
+        }
+        logger.info("è¾“å‡ºç»“æœï¼š{}", jsonObj.toString());
+        return jsonObj.toString();
+    }
 
-	/**
-     * ·µ»ØÊ§°Ü
-     * @param errorMsg ´íÎóĞÅÏ¢
-     * @return Êä³öÊ§°ÜµÄJSON¸ñÊ½Êı¾İ
+    /**
+     * è¿”å›æˆåŠŸ
+     *
+     * @param obj è¾“å‡ºå¯¹è±¡
+     * @return è¾“å‡ºæˆåŠŸçš„JSONæ ¼å¼æ•°æ®
      */
-    public String responseFail(String errorMsg){
-    	JSONObject jsonObj = new JSONObject();
-    	jsonObj.put(HttpConstants.RESPONSE_RESULT_FLAG_ISERROR, true);
-    	jsonObj.put(HttpConstants.SERVICE_RESPONSE_RESULT_MSG, errorMsg);
-        logger.info("Êä³ö½á¹û£º{}", jsonObj.toString());
+    public String responseSuccess(Object obj, String msg) {
+        JSONObject jsonObj = null;
+        if (obj != null) {
+            logger.info("åç«¯è¿”å›å¯¹è±¡ï¼š{}", obj);
+            JsonConfig jsonConfig = new JsonConfig();
+            jsonConfig.registerJsonValueProcessor(Date.class, new JsonDateValueProcessor());
+            jsonObj = JSONObject.fromObject(obj, jsonConfig);
+            logger.info("åç«¯è¿”å›æ•°æ®ï¼š" + jsonObj);
+            jsonObj.element(HttpConstants.RESPONSE_RESULT_FLAG_ISERROR, false);
+            jsonObj.element(HttpConstants.SERVICE_RESPONSE_RESULT_MSG, msg);
+        }
+        logger.info("è¾“å‡ºç»“æœï¼š{}", jsonObj.toString());
+        return jsonObj.toString();
+    }
+
+    /**
+     * è¿”å›å¤±è´¥
+     *
+     * @param errorMsg é”™è¯¯ä¿¡æ¯
+     * @return è¾“å‡ºå¤±è´¥çš„JSONæ ¼å¼æ•°æ®
+     */
+    public String responseFail(String errorMsg) {
+        JSONObject jsonObj = new JSONObject();
+        jsonObj.put(HttpConstants.RESPONSE_RESULT_FLAG_ISERROR, true);
+        jsonObj.put(HttpConstants.SERVICE_RESPONSE_RESULT_MSG, errorMsg);
+        logger.info("è¾“å‡ºç»“æœï¼š{}", jsonObj.toString());
         return jsonObj.toString();
     }
 

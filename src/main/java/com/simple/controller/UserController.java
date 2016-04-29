@@ -2,7 +2,7 @@ package com.simple.controller;
 
 import com.simple.model.User;
 import com.simple.service.IUserService;
-import com.simple.util.PagedResult;
+import com.simple.util.PageResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,7 +16,7 @@ import javax.annotation.Resource;
  * 分页查询
  */
 @Controller
-public class UserController extends BaseController{
+public class  UserController extends BaseController{
 
     @Resource
     private IUserService userService;
@@ -39,7 +39,7 @@ public class UserController extends BaseController{
     @RequestMapping(value = "/listPages.action",method = RequestMethod.POST)
     public @ResponseBody String list(Integer pageNumber,Integer pageSize,String username){
         try {
-            PagedResult<User> pageResult = userService.queryByPage(username, pageNumber,pageSize);
+            PageResult<User> pageResult = userService.queryByPage(username, pageNumber,pageSize);
             return responseSuccess(pageResult);
         } catch (Exception e) {
             return responseFail(e.getMessage());

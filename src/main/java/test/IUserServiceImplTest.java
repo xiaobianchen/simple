@@ -2,7 +2,7 @@ package test;
 
 import com.simple.model.User;
 import com.simple.service.IUserService;
-import com.simple.util.PagedResult;
+import com.simple.util.PageResult;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -74,7 +74,7 @@ public class IUserServiceImplTest {
 
     @Test
     public void queryByPage() {
-        PagedResult<User> result = userService.queryByPage("admin2", 1, 10);
+        PageResult<User> result = userService.queryByPage("admin2", 1, 10);
         System.out.println(result);
     }
 
